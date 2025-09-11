@@ -1,0 +1,6 @@
+[package]
+name = "zkpedro_workshop"
+type = "bin"
+authors = [""]
+
+[dependencies]
