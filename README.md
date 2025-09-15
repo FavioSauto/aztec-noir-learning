@@ -11,7 +11,7 @@ This is a repo where I will be learning Noir and following different Aztec's tut
 - L2: Layer 2
 - Prover: The party that generates the proof
 - Verifier: The party that verifies the proof
-- Proof: The proof that the prover sends to the verifier
+- Proof: The mathematical proof that the prover sends to the verifier
 - Verification Key: The verification key that the prover sends to the verifier
 - Witness: The information that the prover sends to the verifier
 
