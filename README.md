@@ -2,19 +2,6 @@
 
 This is a repo where I will be learning Noir and following different Aztec's tutorials and workshops.
 
-### Glossary
-
-- ZK: Zero-Knowledge
-- ZK-SNARK: Zero-Knowledge Succinct Non-interactive ARgument of Knowledge
-- ZK Rollup: Zero-Knowledge Rollup
-- L1: Layer 1
-- L2: Layer 2
-- Prover: The party that generates the proof
-- Verifier: The party that verifies the proof
-- Proof: The mathematical proof that the prover sends to the verifier
-- Verification Key: The verification key that the prover sends to the verifier
-- Witness: The information that the prover sends to the verifier
-
 ## Video: "Build Your First ZK App with Noir"
 
 Video: [Build Your First ZK App with Noir](https://www.youtube.com/watch?v=06INZUM5Ca8&list=PLabpoAlaCBY3Hu-QuvSa4WXvM6H94sQ_I&index=1)
@@ -60,3 +47,16 @@ Inspired by Cargo, Nargo is the Noir package manager. It has some tooling for ex
 ##### BB = Barretenberg
 
 Barretenberg is the proving backend that Noir uses. This is what we could actually swap by some other backend as long as it understands the intermediate language between the two called ACR.
+
+## Glossary
+
+- ZK: Zero-Knowledge
+- ZK-SNARK: Zero-Knowledge Succinct Non-interactive ARgument of Knowledge
+- ZK Rollup: Zero-Knowledge Rollup
+- L1: Layer 1
+- L2: Layer 2
+- Prover: The party that generates the proof
+- Verifier: The party that verifies the proof
+- Proof: The mathematical proof that the prover sends to the verifier
+- Verification Key: The verification key that the prover sends to the verifier
+- Witness: The information that the prover sends to the verifier
