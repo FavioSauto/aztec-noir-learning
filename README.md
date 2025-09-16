@@ -48,6 +48,53 @@ Inspired by Cargo, Nargo is the Noir package manager. It has some tooling for ex
 
 Barretenberg is the proving backend that Noir uses. This is what we could actually swap by some other backend as long as it understands the intermediate language between the two called ACR.
 
+## Video: "NoirHack 2025 - Official Kickoff & Intro to Noir"
+
+Video: [NoirHack 2025 - Official Kickoff & Intro to Noir](https://www.youtube.com/watch?v=mxf7OWu5CQc&list=PLabpoAlaCBY3Hu-QuvSa4WXvM6H94sQ_I&index=6)
+
+### Notes
+
+A Zero Knowledge proof is a cryptographic proof about a fact that does not reveal any info about said fact.
+
+An interactive proof is when a verifier asks questions/challenges two or more times to the prover about the proof until it's convinced that the prover actually knows the fact.
+
+A non-interactive proof is when a verifier can bundle all of the questions/challenges into one and send it to the prover, the prover cna then answer at any time, and this allows anyone to verify, not only the Verifier. This is a Succinct Non-interactive ARgument of Knowledge (SNARK).
+
+There are loads of types of SNARKs, groth16, honk, ultrahonk, ultraflunk, or plonk are types of SNARK *proving* systems. Each type of SNARK has different properties and optimizations, and there are different reasons we might want to use one over the other.
+
+The cool thing about Noir is that we can use all of these different SNARKs to generate proofs.
+
+Noir compiles to ACIR (Abstract Circuit Intermediate Representation). It is then fed to the ACVM (Abstract Circuit Virtual Machine). The ACVM "translates" this ACIR into whatever proving system is specified. Barretenberg is default ultrahonk. We can use different proving systems with Barretenberg, but for this video we will use ultrahonk.
+
+The "Field" type in Noir is the default field for whatever proving system we are using. The way we work with "Field"s is pretty much with unsigned integers.
+
+When we execute a Noir circuit, we are assigning the variables to it. And that is the witness. If we have the following code.
+
+```
+fn main(x: Field, y: pub Field) {
+    assert(x != y);
+}
+```
+
+And then we execut that circuit we are assigning the values to the "x" and "y" variables. The object of the assigned variables is the witness. So something like this would be the witness of the code above: "{ x: 1, y: 2 }". Once we have the witness and the circuit, we can prove it. And then we can send the proof to the verifier to verify it.
+
+#### Personal Notes
+
+Based on a chat with AI, I went deeper into what is Barretenberg and what is ultrahonk.
+
+Based on the AI response: "Barretenberg is a highly optimized, low-level SNARK proving system backend developed by Aztec. It is the computational engine responsible for generating and verifying zero-knowledge proofs (specifically, SNARKs, often plonky2-like constructions) that are integral to Aztec's privacy model and the execution of Noir circuits."
+
+"UltraHonk is the next-generation proving scheme that Aztec is building, and it is a significant evolution beyond UltraPlonk. It combines several recent breakthroughs in zero-knowledge cryptography into a single, cohesive system."
+
+As of my understanding, Barretenberg is like a javascript engine, ultrahonk is like a javascript standard (ecmascript), noir is javascript, and nargo is the runtime environment for noir.
+
+| Frontend Development | ZK (Aztec/Noir) Concept | Role |
+| -------- | ------- | ------- |
+| *ECMAScript (The Standard)* | *UltraHonk (The Scheme)* | The formal blueprint or specification. |
+| *V8 Engine (The implementation)* | *Barretenberg (The backend)* | The high-performance C++ engine that runs the spec. |
+| *JavaScript/TypeScript (The Language)* | *Noir (The Language)* | The high-level language developers write their logic in. |
+| *Browser (The runtime environment)* | *The Aztec Node or `nargo` (The toolchain/SDK)* | The complete environment that bundles the language compiler and the engine to provide a full developer toolkit. |
+
 ## Glossary
 
 - ZK: Zero-Knowledge
