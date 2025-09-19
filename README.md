@@ -107,3 +107,19 @@ As of my understanding, Barretenberg is like a javascript engine, ultrahonk is l
 - Proof: The mathematical proof that the prover sends to the verifier
 - Verification Key: The verification key that the prover sends to the verifier
 - Witness: The information that the prover sends to the verifier
+
+## Commands
+
+### nargo
+
+```
+nargo check # Creates a "Prover.toml" file where the witness data is stored. For the template is a Prover.toml file with x="" and y="".
+
+nargo execute [witness_name] # This generates the witness and the compiled circuit. "main.json" is the compiled circuit and the [witness_name].gz is the witness that is a binary file. The compiled circuit is the thing that we're going to be passing to different things to prove  and verify.
+
+bb prove -b [compiled_circuit] -w [witness_name] -v [verification_key] -o [output_file (generally ./target)] # This generates the proof.
+
+bb write_vk -b [compiled_circuit] -o [output_file (generally ./target)] # This generates the verification key. This is what we're going to use that to verify the proof generated.
+
+bb verify -p [proof_direction] -vk [verification_key] # This verifies the proof.
+```
